@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <meta name="description" content="Strona kontaktowa">
+    <link href="styl.css" rel="stylesheet">
+    <link rel="icon" href="img/icon.png" >
+    <script type="module" src="./index.js"></script>
+    
+   
+</head>
+
+<body>
+   
+    <div id="container">
+        <div id="Nagłówek">
+             <img src="img/logo.jpg" alt="logo">
+             <h1 style="font-family: 'Brastagi', sans-serif;">Wyborne Wypieki</h1>
+        </div>
+
+        
+        <div class="menu">
+            <a class="link" href="informacje.html">Informacje</a>
+            <a class="link" href="galeria.html">Galeria</a>
+            <a class="link" href="index.html">Strona główna</a>
+        </div>
+<img class="ozdoba" src="img/ozd.png" alt="ozdoba">
+
+        
+        <div class="kontakt">
+            <form id="f1" method="get">
+<input type="text" name="czas" size="10">
+</form>
+
+<script>
+function zegar() {
+  var data = new Date();
+  var godzina = data.getHours();
+  var min = data.getMinutes();
+  var sek = data.getSeconds();
+  var terazjest = ""+godzina+
+  ((min<10)?":0":":")+min+
+  ((sek<10)?":0":":")+sek;
+  document.getElementById("f1").czas.value = terazjest;
+  setTimeout("zegar()", 1000);
+}
+zegar();
+</script>
+			<p>Wiktor Orman</p>
+            <p><strong>Numer telefonu:</strong> +48 123 456 789</p>
+            <p><strong>Email:</strong> wiktor.orman@wp.pl</p>
+
+        </div>
+
+        <div id="box">
+       <div class="button-container">
+            <a href="https://www.facebook.com/?locale=pl_PL" target="_blank" class="button-facebook">Facebook <img class="bruh" src="img/fcb.jpg" alt="Facebook"></a>
+        </div>
+        <div class="button-container">
+            <a href="https://www.Instagram.com/" target="_blank" class="button-instagram">Instagram <img class="bruh" src="img/inst.jpg" alt="Instagram" ></a>
+        </div>
+
+
+        
+        
+       
+
+        
+    </div>
+  <img class="ozdoba" src="img/ozd.png" alt="ozdoba">
+    
+
+<div id="map">
+        
+    
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1037.005905672224!2d19.442659642856114!3d50.48390073390637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471723c9903d3169%3A0xb45bff34f9f061a8!2zWmVzcMOzxYIgU3prw7PFgiBpbS4gU3RhbmlzxYJhd2EgU3Rhc3ppY2EgdyBaYXdpZXJjaXU!5e0!3m2!1spl!2spl!4v1727370258419!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+
+        </div>
+              </div>
+              
+      <img class="ozdoba" src="img/ozd.png" alt="ozdoba">        
+         
+          <div id="stopka">
+            <h1>Wszystkie prawa nie zastrzeżone</h1>
+        </div>
+
+</body>
+
+</html>

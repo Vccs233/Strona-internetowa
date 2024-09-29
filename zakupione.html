@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:/</title>
+    <meta name="description" content="opis">
+    <link href="styl.css" rel="stylesheet">
+    <link rel="icon" href="img/icon.png">
+</head>
+
+<body>
+
+    <div id="container">
+        <div id="Nagłówek">
+            <img src="img/logo.jpg" alt="logo">
+            <h1 style="font-family: 'Brastagi', sans-serif;">Wyborne Wypieki</h1>
+        </div>
+
+        <div class="treść">
+            <div class="texty">
+                <h1 style="font-family: 'Brastagi', sans-serif;">Brak na stanie</h1>
+            </div>
+            <div class="tort">
+                <img src="img/idk.gif" alt="Tort">
+            </div>
+        </div>
+
+        <div class="treść">
+            <!-- Formularz do wysyłania maila -->
+            <form method="post">
+                <label for="email">Podaj swój adres email, aby otrzymać powiadomienie, gdy produkt będzie dostępny:</label><br>
+                <input type="email" id="email" name="email" required>
+                <br><br>
+                <input type="submit" value="Wyślij">
+            </form>
+
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // Pobranie adresu email z formularza
+                $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+
+                // Sprawdzenie, czy adres email jest poprawny
+                if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    // Parametry wiadomości
+                    $to = $email;  // adres odbiorcy
+                    $subject = "Powiadomienie o dostępności produktu";
+                    $message = "Witaj!\n\nProdukt, który Cię interesuje, ponownie będzie dostępny w naszym sklepie. Zapraszamy do odwiedzin!";
+                    $headers = "From: no-reply@wybornewypieki.pl\r\n";
+
+                    // Wysyłanie maila
+                    if (mail($to, $subject, $message, $headers)) {
+                        echo "<p>Wiadomość została wysłana na adres: " . htmlspecialchars($email) . "</p>";
+                    } else {
+                        echo "<p>Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.</p>";
+                    }
+                } else {
+                    echo "<p>Nieprawidłowy adres email.</p>";
+                }
+            }
+            ?>
+        </div>
+
+        <div class="treść"><a class="kup" href="index.html">Powrót</a></div>
+    </div>
+
+    <div id="stopka">
+        <h1>Wszystkie prawa nie zastrzeżone</h1>
+    </div>
+
+</body>
+
+</html>
